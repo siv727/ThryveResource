@@ -1,5 +1,6 @@
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 from django.db import models
+from django.conf import settings
 
 # Custom manager for creating users
 class CustomUserManager(BaseUserManager):
