@@ -12,7 +12,7 @@
         <h2>Logout</h2>
         <form method="POST" action="{%  url 'logout' %}">
             {% csrf_token %}
-            <p>Are you sure you want to log out?????</p>
+            <p>Are you sure you want to log out?</p>
             <button type="submit">Logout</button>
             <a href="{%  url 'home' %}">Cancel</a>
         </form>
