@@ -1,11 +1,11 @@
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 from django.db import models
 
+# Custom manager for creating users
 class CustomUserManager(BaseUserManager):
     def _create_user(self, email, password, **extra_fields):
         if not email:
-            raise ValueError('Invalid email address')
-
+            raise ValueError('The Email field must be set')
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
@@ -20,9 +20,10 @@ class CustomUserManager(BaseUserManager):
     def create_superuser(self, email, password, **extra_fields):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
-
         return self._create_user(email, password, **extra_fields)
 
+
+# Custom User model
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -33,8 +34,34 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
 
     objects = CustomUserManager()
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'company_name']
 
     def __str__(self):
         return self.email
+
+
+# Import CustomUser for use in other models (BusinessProfile, ProfileCustomization)
+from . import CustomUser  # Import CustomUser from the same app
+
+
+# Business Profile Model
+class BusinessProfile(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)  # Reference CustomUser model
+    company_name = models.CharField(max_length=255)
+    industry = models.CharField(max_length=255)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.company_name
+
+
+# Profile Customization Model
+class ProfileCustomization(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)  # Reference CustomUser model
+    display_name = models.CharField(max_length=255)
+    bio = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.display_name
