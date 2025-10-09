@@ -42,10 +42,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return self.email
 
 
-# Import CustomUser for use in other models (BusinessProfile, ProfileCustomization)
-from . import CustomUser  # Import CustomUser from the same app
-
-
 # Business Profile Model
 class BusinessProfile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)  # Reference CustomUser model
