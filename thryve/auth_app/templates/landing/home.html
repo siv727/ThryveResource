@@ -1,17 +1,23 @@
-{%  load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User Register</title>
-    <link rel="stylesheet" type="text/css" href=" {%  static 'styles/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
 </head>
 <body>
     <div class="container">
         <h2>Home</h2>
         <p>Welcome, {{ request.user.username }}!</p>
-        <form method="POST" action="{%  url 'logout' %}">
+
+        {% if user.is_authenticated %}
+            <a class="btn btn-outline-primary" href="{% url 'business_profile' %}">Business Profile</a>
+            <a class="btn btn-outline-secondary" href="{% url 'profile_customization' %}">Profile Customization</a>
+        {% endif %}
+
+        <form method="POST" action="{% url 'logout' %}">
             {% csrf_token %}
             <button type="submit">Logout</button>
         </form>
