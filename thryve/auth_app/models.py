@@ -44,10 +44,11 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 # Business Profile Model
 class BusinessProfile(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)  # Reference CustomUser model
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='business_profile')  # Use settings.AUTH_USER_MODEL
     company_name = models.CharField(max_length=255)
     industry = models.CharField(max_length=255)
     description = models.TextField()
+    website_url = models.URLField(blank=True)  # Added website_url field
 
     def __str__(self):
         return self.company_name
@@ -55,9 +56,10 @@ class BusinessProfile(models.Model):
 
 # Profile Customization Model
 class ProfileCustomization(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)  # Reference CustomUser model
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile_customization')  # Use settings.AUTH_USER_MODEL
     display_name = models.CharField(max_length=255)
     bio = models.TextField(blank=True)
+    tagline = models.CharField(max_length=255, blank=True)  # Added tagline field
 
     def __str__(self):
         return self.display_name
