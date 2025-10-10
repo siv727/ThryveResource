@@ -53,6 +53,12 @@ INSTALLED_APPS = [
     'profile_app',
 ]
 
+# Authentication backends - use email instead of username
+AUTHENTICATION_BACKENDS = [
+    'auth_app.authentication_backend.EmailBackend',  # Custom backend for email authentication
+    'django.contrib.auth.backends.ModelBackend',     # Default backend for fallback
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
