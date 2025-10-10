@@ -1,9 +1,9 @@
-from django.urls import path, include
-from auth_app import views
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('home/', views.home, name='home'),
-    path('login/', views.login_view, name='login'),
-    path('register/', views.register, name='register'),
-    path('logout/', views.logout, name='logout'),
+    path('login/', views.login_view, name='login'),   # Login route
+    path('register/', views.register, name='register'),  # Register route
+    path('logout/', views.logout, name='logout'),  # Logout route
+    path('home/', views.home, name='home'),  # Home route (ensure you have a home view)
 ]
