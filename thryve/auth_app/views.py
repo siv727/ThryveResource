@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from .forms import RegistrationForm  # Ensure you have a RegistrationForm
 
 def login_view(request):
     if request.method == 'POST':
@@ -20,6 +21,18 @@ def login_view(request):
     
     # GET request, show login form
     return render(request, 'accounts/login.html')
+
+def register(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()  # Save the new user
+            login(request, user)  # Log the user in
+            return redirect('home')  # Redirect to the home page or any other page
+    else:
+        form = RegistrationForm()  # Show the registration form if it's a GET request
+
+    return render(request, 'accounts/register.html', {'form': form})
 
 @login_required
 def logout(request):

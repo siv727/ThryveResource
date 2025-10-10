@@ -8,7 +8,7 @@ from auth_app import views  # Add this import
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include('auth_app.urls')),  # Authentication URLs (formerly 'accounts/')
+    path('accounts/', include('auth_app.urls')),  # Authentication URLs (formerly 'accounts/')
     path('profile/', include('profile_app.urls')),  # Profile URLs
     path('', views.home, name='home'),  # Home page route (linked to home view in auth_app)
 
