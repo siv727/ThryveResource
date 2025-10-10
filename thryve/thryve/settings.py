@@ -120,6 +120,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Add the LOGIN_REDIRECT_URL here
+LOGIN_REDIRECT_URL = '/'  # Redirect to the home page or wherever 
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/

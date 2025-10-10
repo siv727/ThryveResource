@@ -8,11 +8,11 @@ from auth_app import views  # Add this import
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include('auth_app.urls')),  # Authentication URLs
+    path('auth/', include('auth_app.urls')),  # Authentication URLs (formerly 'accounts/')
     path('profile/', include('profile_app.urls')),  # Profile URLs
+    path('', views.home, name='home'),  # Home page route (linked to home view in auth_app)
 
-    # Home page route
-    path('', views.home, name='home'),  # Home page view (you can customize this)
+    # You can add other URL patterns if necessary
 ]
 
 # Serve media files in development
