@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('auth_app.urls')),              # you already have home/login/register here
+    path('auth/', include('auth_app.urls')),              # you already have home/login/register here
     path('profile/', include('profile_app.urls')),   # ← add this
 ]
 
