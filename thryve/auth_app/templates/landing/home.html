@@ -2,25 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>User Register</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home - Thryve</title>
+  <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h2>Home</h2>
-        <p>Welcome, {{ request.user.username }}!</p>
+  <div class="container">
+    <h1>Welcome, {{ request.user.first_name }}!</h1>
+    <p>You are logged in as {{ request.user.email }}</p>
 
-        {% if user.is_authenticated %}
-            <a class="btn btn-outline-primary" href="{% url 'business_profile' %}">Business Profile</a>
-            <a class="btn btn-outline-secondary" href="{% url 'profile_customization' %}">Profile Customization</a>
-        {% endif %}
-
-        <form method="POST" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
+    <div class="links">
+      <a href="{% url 'business_profile' %}" class="btn">Business Profile</a>
+      <a href="{% url 'profile_customization' %}" class="btn">Profile Customization</a>
+      <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn logout">Logout</button>
+      </form>
     </div>
+  </div>
 </body>
 </html>
