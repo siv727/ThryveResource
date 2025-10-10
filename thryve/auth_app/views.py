@@ -18,10 +18,11 @@ def login_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-        user = authenticate(request, email=email, password=password)
+        user = authenticate(request, email=email, password=password)  # Authenticate with email
         if user is not None:
             login(request, user)
-            return redirect('home')
+            next_url = request.GET.get('next', 'home')  # Redirect to the 'next' URL or 'home' by default
+            return redirect(next_url)
         else:
             return render(request, 'accounts/login.html', {'error': 'Invalid credentials'})
     return render(request, 'accounts/login.html')
