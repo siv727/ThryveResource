@@ -22,7 +22,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('auth_app.urls')),              # you already have home/login/register here
-    path('profile/', include('profile_app.urls')),   # ← add this
+    path('profile/', include('profile_app.urls')), 
+     # Add this line to handle the root (empty) URL:
+    path('', views.home, name='home'),  # Home page view (you can customize this)# ← add this
 ]
 
 # Serve media in development (for avatars/logos)
