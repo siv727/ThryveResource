@@ -13,7 +13,10 @@ def business_profile_view(request):
             return redirect('business_profile')
     else:
         form = BusinessProfileForm(instance=bp)
+
+    # 👇 use this template name because your file is under templates/profile_app/
     return render(request, 'profile_app/business_profile.html', {'form': form})
+
 
 @login_required
 def profile_customization_view(request):
@@ -25,4 +28,7 @@ def profile_customization_view(request):
             return redirect('profile_customization')
     else:
         form = ProfileCustomizationForm(instance=pc)
+
+    # If this file is also under templates/profile_app/, use:
     return render(request, 'profile_app/profile_customization.html', {'form': form})
+

@@ -1,12 +1,174 @@
-{% extends "thryve_app/base.html" %}
 {% load static %}
-{% block content %}
-<div class="container">
-  <h2>Manage Your Business Profile</h2>
-  <form method="post" enctype="multipart/form-data" class="mt-3">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-  </form>
-</div>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Thryve • Business Profile</title>
+  <link rel="stylesheet" href="{% static 'styles/css/business_profile.css' %}?v=2">
+</head>
+<body>
+
+  <!-- Top bar (same brand/header system) -->
+  <!-- Top Navigation -->
+<header class="nav">
+  <div class="nav__inner container">
+    <!-- LEFT: brand -->
+    <a class="nav__brand" href="{% url 'home' %}">Thryve</a>
+
+    <!-- CENTER: tabs -->
+    <nav class="nav__tabs" aria-label="Primary">
+      <a class="nav__tab" href="{% url 'home' %}">
+        <svg class="nav__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="9" stroke-width="2"></circle>
+          <path d="M8 12h8" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+        Marketplace
+      </a>
+      <a class="nav__tab" href="{% url 'community' %}">
+        <svg class="nav__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-width="2" stroke-linecap="round"></path>
+          <circle cx="12" cy="7" r="4" stroke-width="2"></circle>
+        </svg>
+        Community
+      </a>
+    </nav>
+
+    <!-- RIGHT: share + profile -->
+    <div class="nav__icons">
+      <button class="icon-btn" aria-label="Share">
+        <svg class="nav__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="18" cy="5" r="3" stroke-width="2"></circle>
+          <circle cx="6" cy="12" r="3" stroke-width="2"></circle>
+          <circle cx="18" cy="19" r="3" stroke-width="2"></circle>
+          <path d="M8.59 11.51l6.83-3.02" stroke-width="2"></path>
+          <path d="M15.41 15.51l-6.82 3.02" stroke-width="2"></path>
+        </svg>
+      </button>
+
+      <!-- link to yourself is fine; keeps header consistent -->
+      <a href="{% url 'business_profile' %}" class="icon-btn" aria-label="Profile">
+        <svg class="nav__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M20 21a8 8 0 1 0-16 0" stroke-width="2" stroke-linecap="round"></path>
+          <circle cx="12" cy="7" r="4" stroke-width="2"></circle>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Body -->
+  <div class="page container">
+    <aside class="sidebar">
+      <div class="sidebar__brand">thryve</div>
+
+      <nav class="sidenav">
+        <a href="#" class="snav__item">
+          <span class="snav__icon">🛡️</span>
+          Roles & Permissions
+        </a>
+        <a href="#" class="snav__item snav__item--active">
+          <span class="snav__icon">🏢</span>
+          Business Profiles
+        </a>
+        <a href="#" class="snav__item">
+          <span class="snav__icon">🎨</span>
+          Profile Customization
+        </a>
+      </nav>
+
+      <a class="logout" href="{% url 'logout' %}">↪ Logout</a>
+    </aside>
+
+    <main class="content">
+      <header class="content__header">
+        <h1>Manage Your Business Profile</h1>
+        <p class="muted">
+          Establish and refine your business's presence on Thryve. Provide comprehensive details to
+          build trust and visibility with potential customers.
+        </p>
+
+        <!-- Top tabs -->
+        <div class="subtabs">
+          <button class="subtab subtab--active">Business Information</button>
+          <button class="subtab">Business Logo</button>
+          <button class="subtab">Contact Details</button>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2 class="card__title">Business Details</h2>
+        <p class="card__hint">Provide core information about your business.</p>
+
+        <form class="form">
+          <label class="field">
+            <span class="label">Company Name</span>
+            <input class="input" type="text" placeholder="MarketConnect Pro Solutions" />
+          </label>
+
+          <label class="field">
+            <span class="label">Industry</span>
+            <div class="select">
+              <select class="input">
+                <option value="">Select industry</option>
+                <option>Manufacturing</option>
+                <option>Technology</option>
+                <option>Logistics</option>
+                <option>Professional Services</option>
+              </select>
+              <span class="chev">▾</span>
+            </div>
+          </label>
+
+          <label class="field">
+            <span class="label">Business Description</span>
+            <textarea class="textarea" rows="4"
+              placeholder="Describe your company, what you do, and your value proposition."></textarea>
+          </label>
+
+          <div class="grid grid--3">
+            <label class="field">
+              <span class="label">Physical Address</span>
+              <input class="input" type="text" placeholder="123 Main Street" />
+            </label>
+            <label class="field">
+              <span class="label">City</span>
+              <input class="input" type="text" placeholder="Anytown" />
+            </label>
+            <label class="field">
+              <span class="label">State</span>
+              <input class="input" type="text" placeholder="CA" />
+            </label>
+          </div>
+
+          <div class="grid grid--2">
+            <label class="field">
+              <span class="label">Postal Code</span>
+              <input class="input" type="text" placeholder="90210" />
+            </label>
+            <label class="field">
+              <span class="label">Country</span>
+              <input class="input" type="text" placeholder="USA" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span class="label">Website URL</span>
+            <div class="input input--with-icon">
+              <span class="prefix">https://</span>
+              <input type="text" placeholder="www.marketconnectpro.com"/>
+            </div>
+          </label>
+
+          <div class="form__actions">
+            <button type="button" class="btn btn--ghost">Cancel</button>
+            <button type="submit" class="btn btn--primary">Save Changes</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>
