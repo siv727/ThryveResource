@@ -14,10 +14,15 @@
     <div class="nav__inner container">
       <div class="nav__brand">thryve</div>
 
-      <nav class="nav__tabs">
-        <a class="nav__tab" href="{% url 'home' %}">Marketplace</a>
-        <a class="nav__tab nav__tab--active" href="{% url 'community' %}">Community</a>
-      </nav>
+      <nav class="tabs">
+        <a class="tab" href="{% url 'home' %}">
+          <span class="tab__dot">◎</span> Marketplace
+        </a>
+        <a class="tab tab--active" href="{% url 'community' %}">
+          <span class="tab__dot">👥</span> Community
+        </a>
+    </nav>
+
 
       <div class="nav__icons">
         <span class="icon">⤴︎</span>

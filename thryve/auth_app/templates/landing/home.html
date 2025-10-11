@@ -15,13 +15,14 @@
       <div class="brand">Thryve</div>
 
       <nav class="tabs">
-        <a class="tab tab--active" href="#">
-          <span class="tab__dot">◎</span> Marketplace
-        </a>
-        <a class="tab" href="#">
-          <span class="tab__dot">👥</span> Community
-        </a>
-      </nav>
+         <a class="tab tab--active" href="{% url 'home' %}">
+           <span class="tab__dot">◎</span> Marketplace
+      </a>
+         <a class="tab" href="{% url 'community' %}">
+           <span class="tab__dot">👥</span> Community
+      </a>
+    </nav>
+
 
       <button class="btn btn--primary btn--add">+ Add Listing</button>
     </div>
