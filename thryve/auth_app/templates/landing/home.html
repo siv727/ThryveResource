@@ -14,14 +14,17 @@
     <div class="topbar__inner container">
       <div class="brand">Thryve</div>
 
-      <nav class="tabs">
-         <a class="tab tab--active" href="{% url 'home' %}">
-           <span class="tab__dot">◎</span> Marketplace
-      </a>
-         <a class="tab" href="{% url 'community' %}">
-           <span class="tab__dot">👥</span> Community
+     <nav class="tabs">
+      <a class="tab tab--active" href="{% url 'home' %}">
+        <span class="tab__icon" aria-hidden="true">◎</span>
+              Marketplace
+       </a>
+      <a class="tab" href="{% url 'community' %}">
+        <span class="tab__icon" aria-hidden="true">👥</span>
+          Community
       </a>
     </nav>
+
 
 
       <button class="btn btn--primary btn--add">+ Add Listing</button>
