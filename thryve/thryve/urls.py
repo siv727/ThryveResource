@@ -11,6 +11,7 @@ urlpatterns = [
     path('accounts/', include('auth_app.urls')),  # Authentication URLs (formerly 'accounts/')
     path('profile/', include('profile_app.urls')),  # Profile URLs
     path('', views.home, name='home'),  # Home page route (linked to home view in auth_app)
+    path('community/', views.community_feed, name='community'),
 
     # You can add other URL patterns if necessary
 ]

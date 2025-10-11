@@ -1,0 +1,64 @@
+:root{
+  --bg:#fbfdff;
+  --container: 1120px;
+  --text:#0f172a;
+  --muted:#6b7280;
+  --line:#e6edf5;
+  --brand:#199ad7;
+  --brand-dark:#148cc5;
+  --card:#ffffff;
+  --shadow:0 8px 22px rgba(15,23,42,.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0; background:var(--bg); color:var(--text);
+  font:14px/1.6 "Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+
+.container{max-width:var(--container); margin:0 auto; padding:0 22px}
+
+/* ===== NAVBAR ===== */
+.nav{background:#fff; border-bottom:1px solid var(--line)}
+.nav__inner{height:60px; display:flex; align-items:center; gap:16px}
+.nav__brand{font-weight:800; color:var(--brand); font-size:20px}
+.nav__tabs{margin:0 auto; display:flex; gap:26px}
+.nav__tab{color:#6b7a90; text-decoration:none; font-weight:600}
+.nav__tab--active{color:var(--brand); position:relative}
+.nav__tab--active::after{
+  content:""; position:absolute; left:0; right:0; bottom:-18px; height:3px;
+  background:linear-gradient(90deg,var(--brand),#26a8e6); border-radius:3px;
+}
+.nav__icons .icon{margin-left:12px; color:#8aa0b6}
+
+/* ===== PAGE HEADER ===== */
+.page{padding:28px 0 36px}
+.page__header{display:flex; align-items:center; justify-content:space-between; margin:22px 0}
+h1{font-size:32px; margin:0 0 6px}
+.muted{color:var(--muted); margin:0}
+
+.btn{border:none; cursor:pointer; border-radius:8px; padding:10px 14px; font-weight:700}
+.btn--primary{background:var(--brand); color:#fff}
+.btn--primary:hover{background:var(--brand-dark)}
+
+/* ===== FEED ===== */
+.feed{display:flex; flex-direction:column; gap:22px}
+
+.post{
+  background:var(--card); border:1px solid var(--line);
+  border-radius:14px; padding:18px 18px; box-shadow:var(--shadow);
+}
+.post__head{display:flex; align-items:center; gap:12px; margin-bottom:8px}
+.avatar{width:40px; height:40px; border-radius:50%; object-fit:cover}
+.post__name{font-weight:800}
+.post__meta{color:#7a8799; font-weight:600}
+.post__meta .dot{margin:0 8px; color:#c7cfdb}
+.post__text{margin:10px 0 12px; color:#374151}
+
+.post__footer{display:flex; gap:18px; color:#7b8794; font-weight:700}
+.stat{display:inline-flex; align-items:center; gap:6px}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:720px){
+  .nav__tabs{gap:18px}
+  .page__header{flex-direction:column; align-items:flex-start; gap:12px}
+}

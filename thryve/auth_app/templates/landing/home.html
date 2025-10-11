@@ -3,162 +3,200 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Thryve • Marketplace</title>
-  <link rel="stylesheet" href="{% static 'styles/home.css' %}?v=3">
+  <link rel="stylesheet" href="{% static 'styles/home.css' %}?v=9">
 </head>
 <body>
 
-  <!-- Top bar -->
+  <!-- Top Bar -->
   <header class="topbar">
     <div class="topbar__inner container">
       <div class="brand">Thryve</div>
 
       <nav class="tabs">
-        <a class="tab tab--active" href="#"><span class="tab__icon" aria-hidden="true">🛒</span> Marketplace</a>
-        <a class="tab" href="#"><span class="tab__icon" aria-hidden="true">👥</span> Community</a>
+        <a class="tab tab--active" href="#">
+          <span class="tab__dot">◎</span> Marketplace
+        </a>
+        <a class="tab" href="#">
+          <span class="tab__dot">👥</span> Community
+        </a>
       </nav>
 
       <button class="btn btn--primary btn--add">+ Add Listing</button>
     </div>
   </header>
 
+  <!-- Page -->
   <main class="container page">
-    <!-- Title + right category select -->
+
+    <!-- Title row with right Category select -->
     <div class="page__header">
       <div class="page__title">
         <h1>Marketplace</h1>
         <p class="muted">Buy, sell, or swap equipment and services</p>
+
+        <!-- chips -->
+        <div class="chips">
+          <button class="chip chip--active">All</button>
+          <button class="chip">For Sale</button>
+          <button class="chip">Swap</button>
+          <button class="chip">Wanted</button>
+        </div>
       </div>
 
       <div class="filters__right">
         <label class="select__label" for="category">Category</label>
         <div class="select">
           <select id="category" name="category">
-            <option>All Categories</option>
+            <option selected>All Categories</option>
             <option>IT Equipment</option>
             <option>Office</option>
             <option>Machinery</option>
             <option>Services</option>
           </select>
-          <span class="select__chev" aria-hidden="true">▾</span>
+          <span class="select__chev">▾</span>
         </div>
       </div>
     </div>
 
-    <!-- Type chips -->
-    <div class="filters">
-      <div class="chips">
-        <button class="chip chip--active" type="button">All</button>
-        <button class="chip" type="button">For Sale</button>
-        <button class="chip" type="button">Swap</button>
-        <button class="chip" type="button">Wanted</button>
-      </div>
-    </div>
-
-    <!-- Cards grid -->
+    <!-- Cards -->
     <section class="grid">
-      <!-- Card 1 -->
+
+      <!-- 1 -->
       <article class="card">
         <div class="card__row">
-          <span class="pill pill--sale">SALE</span>
+          <span class="pill pill--sale"><span class="pill__dot"></span> SALE</span>
           <span class="status status--available">available</span>
         </div>
+
         <h3 class="card__title">Industrial 3D Printer</h3>
-        <div class="card__sub">TechFab Solutions</div>
-        <p class="card__desc">High-precision industrial 3D printer, barely used. Perfect for prototyping and small-scale production.</p>
+        <div class="card__sub">
+          <span class="mini mini--building"></span> TechFab Solutions
+        </div>
+        <p class="card__desc">
+          High-precision industrial 3D printer, barely used. Perfect for prototyping and small-scale production.
+        </p>
         <div class="price">$8,500</div>
+
         <div class="meta">
-          <span class="meta__item">📍 New York, NY</span>
-          <span class="meta__item">📅 1/15/2024</span>
+          <span class="meta__item"><span class="mini mini--pin"></span> New York, NY</span>
+          <span class="meta__item"><span class="mini mini--cal"></span> 1/15/2024</span>
         </div>
+
         <a class="btn btn--cta" href="#">View Details</a>
       </article>
 
-      <!-- Card 2 -->
+      <!-- 2 -->
       <article class="card">
         <div class="card__row">
-          <span class="pill pill--swap">SWAP</span>
+          <span class="pill pill--swap"><span class="pill__dot"></span> SWAP</span>
           <span class="status status--available">available</span>
         </div>
+
         <h3 class="card__title">Office Furniture Set</h3>
-        <div class="card__sub">Creative Spaces Inc</div>
-        <p class="card__desc">Complete office furniture set including 10 desks, chairs, and storage units. Modern design, excellent condition.</p>
+        <div class="card__sub"><span class="mini mini--building"></span> Creative Spaces Inc</div>
+        <p class="card__desc">
+          Complete office furniture set including 10 desks, chairs, and storage units. Modern design, excellent condition.
+        </p>
         <p class="card__hint">Looking for: <strong>IT equipment or professional services</strong></p>
+
         <div class="meta">
-          <span class="meta__item">📍 Los Angeles, CA</span>
-          <span class="meta__item">📅 1/14/2024</span>
+          <span class="meta__item"><span class="mini mini--pin"></span> Los Angeles, CA</span>
+          <span class="meta__item"><span class="mini mini--cal"></span> 1/14/2024</span>
         </div>
+
         <a class="btn btn--cta" href="#">View Details</a>
       </article>
 
-      <!-- Card 3 -->
+      <!-- 3 -->
       <article class="card">
         <div class="card__row">
-          <span class="pill pill--buy">BUY</span>
-          <span class="status"></span>
+          <span class="pill pill--buy"><span class="pill__dot"></span> BUY</span>
+          <span class="status status--ghost"></span>
         </div>
+
         <h3 class="card__title">Looking for CNC Machine</h3>
-        <div class="card__sub">MetalWorks Ltd</div>
-        <p class="card__desc">We need a CNC machine for metalworking. Offering up to $15,000 for the right machine.</p>
+        <div class="card__sub"><span class="mini mini--building"></span> MetalWorks Ltd</div>
+        <p class="card__desc">
+          We need a CNC machine for metalworking. Offering up to $15,000 for the right machine.
+        </p>
         <p class="card__hint">Budget: <strong>$15,000</strong></p>
+
         <div class="meta">
-          <span class="meta__item">📍 Chicago, IL</span>
-          <span class="meta__item">📅 1/13/2024</span>
+          <span class="meta__item"><span class="mini mini--pin"></span> Chicago, IL</span>
+          <span class="meta__item"><span class="mini mini--cal"></span> 1/13/2024</span>
         </div>
+
         <a class="btn btn--cta" href="#">View Details</a>
       </article>
 
-      <!-- Card 4 -->
+      <!-- 4 -->
       <article class="card">
         <div class="card__row">
-          <span class="pill pill--sale">SALE</span>
+          <span class="pill pill--sale"><span class="pill__dot"></span> SALE</span>
           <span class="status status--available">available</span>
         </div>
+
         <h3 class="card__title">Surplus Electronic Components</h3>
-        <div class="card__sub">ElectroSupply Co</div>
-        <p class="card__desc">Large batch of electronic components including resistors, capacitors, and integrated circuits.</p>
+        <div class="card__sub"><span class="mini mini--building"></span> ElectroSupply Co</div>
+        <p class="card__desc">
+          Large batch of electronic components including resistors, capacitors, and integrated circuits.
+        </p>
         <div class="price">$1,200</div>
+
         <div class="meta">
-          <span class="meta__item">📍 Austin, TX</span>
-          <span class="meta__item">📅 1/14/2024</span>
+          <span class="meta__item"><span class="mini mini--pin"></span> Austin, TX</span>
+          <span class="meta__item"><span class="mini mini--cal"></span> 1/14/2024</span>
         </div>
+
         <a class="btn btn--cta" href="#">View Details</a>
       </article>
 
-      <!-- Card 5 -->
+      <!-- 5 -->
       <article class="card">
         <div class="card__row">
-          <span class="pill pill--swap">SWAP</span>
+          <span class="pill pill--swap"><span class="pill__dot"></span> SWAP</span>
           <span class="status status--available">available</span>
         </div>
+
         <h3 class="card__title">Web Development Services</h3>
-        <div class="card__sub">WebCraft Studios</div>
-        <p class="card__desc">Offering web development services in exchange for marketing or design services. Open to proposals.</p>
+        <div class="card__sub"><span class="mini mini--building"></span> WebCraft Studios</div>
+        <p class="card__desc">
+          Offering web development services in exchange for marketing or design services. Open to proposals.
+        </p>
         <p class="card__hint">Looking for: <strong>Marketing or design services</strong></p>
+
         <div class="meta">
-          <span class="meta__item">🛰️ Remote</span>
-          <span class="meta__item">📅 1/12/2024</span>
+          <span class="meta__item"><span class="mini mini--remote"></span> Remote</span>
+          <span class="meta__item"><span class="mini mini--cal"></span> 1/12/2024</span>
         </div>
+
         <a class="btn btn--cta" href="#">View Details</a>
       </article>
 
-      <!-- Card 6 -->
+      <!-- 6 -->
       <article class="card">
         <div class="card__row">
-          <span class="pill pill--sale">SALE</span>
+          <span class="pill pill--sale"><span class="pill__dot"></span> SALE</span>
           <span class="status status--pending">pending</span>
         </div>
+
         <h3 class="card__title">Raw Materials - Steel Sheets</h3>
-        <div class="card__sub">SteelPro Industries</div>
-        <p class="card__desc">High-quality steel sheets, various sizes available. Perfect for manufacturing and construction.</p>
+        <div class="card__sub"><span class="mini mini--building"></span> SteelPro Industries</div>
+        <p class="card__desc">
+          High-quality steel sheets, various sizes available. Perfect for manufacturing and construction.
+        </p>
         <div class="price">$5,000</div>
+
         <div class="meta">
-          <span class="meta__item">📍 Houston, TX</span>
-          <span class="meta__item">📅 1/12/2024</span>
+          <span class="meta__item"><span class="mini mini--pin"></span> Houston, TX</span>
+          <span class="meta__item"><span class="mini mini--cal"></span> 1/12/2024</span>
         </div>
+
         <a class="btn btn--cta" href="#">View Details</a>
       </article>
+
     </section>
   </main>
 
