@@ -1,0 +1,158 @@
+/* home.css */
+
+/* Reset and layout */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* Header / Navbar */
+header {
+  background-color: #0099cc;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+header .logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 500;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.add-listing-btn {
+  background-color: #ff9f00;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-listing-btn:hover {
+  background-color: #e68a00;
+}
+
+/* Marketplace Section */
+.marketplace {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.marketplace h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.marketplace p {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.filter-bar .category-select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+}
+
+/* Listing Grid */
+.listings {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.listing-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  transition: transform 0.2s;
+}
+
+.listing-card:hover {
+  transform: translateY(-4px);
+}
+
+.listing-card h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.listing-card p {
+  margin: 0.3rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.listing-card .price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #007bff;
+}
+
+.view-details {
+  display: inline-block;
+  background-color: #0099cc;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-top: 1rem;
+  text-decoration: none;
+}
+
+.view-details:hover {
+  background-color: #0077aa;
+}
+
+/* Status Tags */
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.tag.sale { background-color: #007bff; }
+.tag.swap { background-color: #28a745; }
+.tag.buy  { background-color: #ff7f50; }
+
+.status {
+  float: right;
+  background-color: #e6ffe6;
+  color: #2d8a2d;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+}
+.status.pending {
+  background-color: #fff4e6;
+  color: #d48806;
+}

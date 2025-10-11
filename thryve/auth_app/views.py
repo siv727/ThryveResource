@@ -42,4 +42,6 @@ def logout(request):
 
 @login_required
 def home(request):
-    return render(request, 'landing/home.html')
+    # from your model Listing(...) if you have one
+    listings = []  # replace with Listing.objects.all()
+    return render(request, 'landing/home.html', {'listings': listings})
